@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 84% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 271 81% 56%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 15%;
+    --input: 217 33% 15%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* Neon colors */
+    --neon-blue: 199 89% 48%;
+    --neon-purple: 271 81% 56%;
+    --neon-cyan: 186 100% 50%;
+    
+    /* Glow effects */
+    --glow-blue: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    --glow-purple: 0 0 20px hsl(var(--neon-purple) / 0.5);
+    --glow-blue-strong: 0 0 30px hsl(var(--neon-blue) / 0.7), 0 0 60px hsl(var(--neon-blue) / 0.4);
+    --glow-purple-strong: 0 0 30px hsl(var(--neon-purple) / 0.7), 0 0 60px hsl(var(--neon-purple) / 0.4);
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-purple)));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--background)), hsl(222 47% 4%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Poppins',sans-serif];
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .neon-glow-blue {
+    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.8), 0 0 20px hsl(var(--neon-blue) / 0.5);
+  }
+  
+  .neon-glow-purple {
+    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.8), 0 0 20px hsl(var(--neon-purple) / 0.5);
+  }
+
+  .neon-border-blue {
+    border-color: hsl(var(--neon-blue));
+    box-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5), inset 0 0 10px hsl(var(--neon-blue) / 0.1);
+  }
+
+  .neon-border-purple {
+    border-color: hsl(var(--neon-purple));
+    box-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5), inset 0 0 10px hsl(var(--neon-purple) / 0.1);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, hsl(var(--card) / 0.6), hsl(var(--card) / 0.3));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
